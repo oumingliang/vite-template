@@ -1,0 +1,153 @@
+
+html {
+  body {
+    /* loading文本样式 */
+    .loading-text {
+      animation: blink 2s linear infinite;
+      -webkit-animation: blink 2s linear infinite;
+      -moz-animation: blink 2s linear infinite;
+      -ms-animation: blink 2s linear infinite;
+      -o-animation: blink 2s linear infinite;
+    }
+    .login-input {
+      .el-input__inner {
+        opacity: 0.6;
+        line-height: 43px;
+        height: 43px;
+        transition: 0.5s;
+        font-size: 16px;
+        font-family: monospace;
+        padding-left: 40px;
+        &:focus {
+          border: 1px solid;
+          border-color: #fecaca;
+        }
+      }
+      .el-input__prefix {
+        font-size: 25px;
+        top: 4px;
+      }
+    }
+    .el-loading-parent--relative {
+      position: relative !important;
+    }
+    .el-loading-parent--hidden {
+      overflow: hidden !important;
+    }
+    /* dark模式 */
+    &[theme="dark"] {
+      .el-loading-mask{
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+    }
+    .el-loading-mask {
+      position: absolute;
+      z-index: 2000;
+      background-color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      -webkit-transition: opacity 0.3s;
+      transition: opacity 0.3s;
+    }
+    .el-loading-mask.is-fullscreen {
+      position: fixed;
+    }
+    .el-loading-mask.is-fullscreen .el-loading-spinner {
+      margin-top: -25px;
+    }
+    .el-loading-mask.is-fullscreen .el-loading-spinner .circular {
+      height: 50px;
+      width: 50px;
+    }
+    .el-loading-spinner {
+      top: 50%;
+      margin-top: -21px;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+    }
+    .el-loading-spinner .el-loading-text {
+      color: #409eff;
+      margin: 3px 0;
+      font-size: 14px;
+    }
+    .el-loading-spinner .circular {
+      height: 42px;
+      width: 42px;
+      -webkit-animation: loading-rotate 2s linear infinite;
+      animation: loading-rotate 2s linear infinite;
+    }
+    .el-loading-spinner .path {
+      -webkit-animation: loading-dash 1.5s ease-in-out infinite;
+      animation: loading-dash 1.5s ease-in-out infinite;
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: 0;
+      stroke-width: 2;
+      stroke: #409eff;
+      stroke-linecap: round;
+    }
+    .el-loading-spinner i {
+      color: #409eff;
+    }
+    .el-loading-fade-enter-from,
+    .el-loading-fade-leave-to {
+      opacity: 0;
+    }
+    @-webkit-keyframes loading-rotate {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes loading-rotate {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @-webkit-keyframes loading-dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -40px;
+      }
+      100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -120px;
+      }
+    }
+    @keyframes loading-dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -40px;
+      }
+      100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -120px;
+      }
+    }
+  }
+}
+@keyframes blink {
+  0% {
+    color: #34d399;
+  }
+
+  50% {
+    color: transparent;
+  }
+
+  100% {
+    color: #34d399;
+  }
+}
